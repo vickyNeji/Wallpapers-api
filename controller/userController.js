@@ -10,7 +10,7 @@ const getRadomWallpapers = async (req, res) => {
   const skip = (page - 1) * limit;
 
   const wallpapers = await Wallpaper.find()
-    .sort({ totalViews: -1 })
+    .sort({ totalViews: -1, _id: 1 })
     .skip(skip)
     .limit(limit);
   res.status(StatusCodes.OK).json({

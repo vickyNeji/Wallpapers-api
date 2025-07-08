@@ -1,6 +1,5 @@
 import { StatusCodes } from "http-status-codes";
 import Wallpaper from "../models/wallpaper.js";
-import mongoose from "mongoose";
 import BadRequestError from "../error/bad-request.js";
 
 const getRadomWallpapers = async (req, res) => {

@@ -34,7 +34,7 @@ app.use("/api/v1/user", userRouter);
 
 app.use(routeNotFound);
 
-//app.use(errorHandlerMiddleWare);
+app.use(errorHandlerMiddleWare);
 
 const start = async () => {
   await connect(process.env.MONGO_URI);

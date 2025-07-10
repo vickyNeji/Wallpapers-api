@@ -43,6 +43,21 @@ const getWallpapersByCategory = async (req, res) => {
   });
 };
 
+const getWallpaperById = async (req, res) => {
+  const wallpaperId = req.params.wallpaperId;
+  const wallpaper = await Wallpaper.findOne({
+    _id: wallpaperId,
+  });
+
+  if (!wallpaper) {
+    throw new BadRequestError("Invalid id provided");
+  }
+  res.status(StatusCodes.OK).json({
+    message: "Wallpaper fetched successfully",
+    data: wallpaper,
+  });
+};
+
 const updateWallViewCount = async (req, res) => {
   const wallpaperId = req.params.wallpaperId;
   const wallpaper = await Wallpaper.findOneAndUpdate(
@@ -67,4 +82,5 @@ export default {
   getRadomWallpapers,
   getWallpapersByCategory,
   updateWallViewCount,
+  getWallpaperById,
 };

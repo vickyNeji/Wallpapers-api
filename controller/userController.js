@@ -33,6 +33,7 @@ const getWallpapersByCategory = async (req, res) => {
   const wallpapers = await Wallpaper.find({
     category: categoryPassed,
   })
+    .sort({ totalViews: -1, _id: 1 })
     .skip(skip)
     .limit(limit);
 

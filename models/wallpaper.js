@@ -18,7 +18,7 @@ const WallpaperSchema = mongoose.Schema({
       "abstract",
       "nature",
       "ghibli",
-      "motivational",
+      "quotes",
       "minimalist",
       "superheroes",
       "space",

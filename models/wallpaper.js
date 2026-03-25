@@ -14,6 +14,7 @@ const WallpaperSchema = mongoose.Schema({
     enum: [
       "anime",
       "games",
+      "animal",
       "sports",
       "abstract",
       "nature",

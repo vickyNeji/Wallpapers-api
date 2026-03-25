@@ -53,9 +53,16 @@ const getWallpaperById = async (req, res) => {
   if (!wallpaper) {
     throw new BadRequestError("Invalid id provided");
   }
+
+  const categoryCurrent = wallpaper.category;
+  const wallpapers = await Wallpaper.find({
+    category: categoryCurrent,
+  });
+
   res.status(StatusCodes.OK).json({
     message: "Wallpaper fetched successfully",
     data: wallpaper,
+    categoriesWallpaper: wallpapers,
   });
 };
 
@@ -66,7 +73,7 @@ const updateWallViewCount = async (req, res) => {
       _id: wallpaperId,
     },
     { $inc: { totalViews: 1 } },
-    { new: true }
+    { new: true },
   );
 
   if (!wallpaper) {
